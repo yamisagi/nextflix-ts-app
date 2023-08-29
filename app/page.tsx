@@ -19,14 +19,9 @@ export default function Home() {
             membership.
           </p>
           <div className='flex align-middle justify-center mt-5'>
-            <input
-              type='text'
-              placeholder='Email address'
-              className='bg-white p-2 rounded-l-md w-96'
-            />
             <Link href='/register'>
-              <button className='bg-[#e50914] text-white p-2 rounded-r-md'>
-                Register
+              <button className='bg-[#e50914] text-white px-10 py-2 rounded-md font-[500] text-xl'>
+                Get Started
               </button>
             </Link>
           </div>

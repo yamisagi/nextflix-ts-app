@@ -3,3 +3,8 @@ type MovieDetailProp = {
     id: string;
   };
 };
+
+interface User {
+  displayName: string;
+  photoURL: string;
+}
