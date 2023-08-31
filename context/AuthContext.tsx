@@ -20,11 +20,7 @@ import { createContext } from 'react';
 const AuthContext = createContext({} as AuthContextType);
 
 const AuthContextProvider = ({ children }: Props) => {
-  const [currentUser, setCurrentUser] = useState<CurrentUser | null>({
-    email: '',
-    displayName: '',
-    photoURL: '',
-  });
+  const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -90,14 +86,14 @@ const AuthContextProvider = ({ children }: Props) => {
         const { email, displayName, photoURL } = user;
         setCurrentUser({ email, displayName, photoURL });
         sessionStorage.setItem(
-          "user",
+          'user',
           JSON.stringify({ email, displayName, photoURL })
         );
         console.log(user);
       } else {
         // User is signed out
-        setCurrentUser({ email: '', displayName: '', photoURL: '' });
-
+        sessionStorage.setItem('user', JSON.stringify('returningUser'));
+        setCurrentUser(null);
         console.log('logged out');
       }
     });
@@ -105,7 +101,6 @@ const AuthContextProvider = ({ children }: Props) => {
 
   const signUpProvider = async () => {
     const provider = new GoogleAuthProvider();
-
     try {
       await signInWithPopup(auth, provider);
       toastSuccessNotify('Signed in successfully');

@@ -22,14 +22,18 @@ const MovieDetail = async ({
       flex flex-col items-center justify-center
     '
     >
-      <h1 className='text-center text-white text-3xl'>{title}</h1>
       {videoKey && <VideoSection videoKey={videoKey} />}
+      <p className='text-white text-center text-2xl md:text-4xl lg:text-5xl font-bold mt-3 md:mt-4'>
+        {title}
+      </p>
       <p
         className='text-white text-center mt-3 md:mt-4
       px-2 md:px-4
       w-auto text-xs lg:text-lg
       font-semibold flex flex-row items-center
-      transition'
+      transition
+        max-w-2xl
+      '
       >
         {overview}
       </p>

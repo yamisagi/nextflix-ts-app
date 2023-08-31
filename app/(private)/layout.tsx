@@ -9,7 +9,8 @@ export default function PrivateLayout({ children }: Props) {
   useEffect(() => {
     const userString = sessionStorage.getItem('user') as string;
     const user = JSON.parse(userString);
-    if (!user) {
+    console.log(user);
+    if (user === 'returningUser') {
       router.push('/login');
     }
   }, [currentUser]);

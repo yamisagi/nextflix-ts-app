@@ -4,7 +4,7 @@ const VideoSection = ({ videoKey }: { videoKey: string }) => {
   return (
     <div className='w-10/12 lg:w-full mx-auto relative
     h-[50vw] sm:h-[45vw] md:h-[40vw] lg:h-[30vw] xl:h-[25vw]
-    mt-16 sm:mt-20 md:mt-8 lg:mt-16 xl:mt-16 
+    mt-24 sm:mt-32 md:mt-8 lg:mt-16 xl:mt-16 
     rounded-md overflow-hidden'
     >
       <div className='embed-responsive embed-responsive-16by9 relative w-full overflow-hidden'

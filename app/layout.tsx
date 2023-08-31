@@ -24,12 +24,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <AuthContextProvider>
-          <PrivateLayout>
+        <AuthContextProvider>   
             <Navbar />
             {children}
             <ToastContainer />
-          </PrivateLayout>
         </AuthContextProvider>
       </body>
     </html>
