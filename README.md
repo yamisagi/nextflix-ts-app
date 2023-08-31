@@ -67,6 +67,15 @@ In this project, I built a Netflix clone using Next.js, TypeScript, React, and T
 ## Roadmap
 
 - [x] Project Setup
+- [x] Creating the Navbar
+- [x] Implementing the Firebase Authentication
+- [x] Creating the App Routing
+- [x] Implementing the Login Page & Sign Up Page
+- [x] Implementing the Home Page
+- [x] Creating the Auth Context
+- [x] Implementing the Profile Page
+- [x] Creating the Utility Functions
+
 
 
 <p align="center">(Still working on it...)</p>

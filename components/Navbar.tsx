@@ -5,15 +5,13 @@ import React from 'react';
 import Link from 'next/link';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
+import { useAuthContext } from '../context/AuthContext';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 const Navbar = () => {
-  const currentUser: User = {
-    displayName: 'Eren C',
-    photoURL: '/images/default-blue.png',
-  };
+  const { currentUser, logOut } = useAuthContext();
   return (
     <>
       <Disclosure as='nav' className='text-white fixed top-0 z-20 w-full'>
@@ -54,32 +52,36 @@ const Navbar = () => {
                   leaveTo='transform opacity-0 scale-95'
                 >
                   <Menu.Items className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link
-                          href='/register'
-                          className={classNames(
-                            active ? 'bg-gray-100' : '',
-                            'block px-4 py-2 text-sm text-gray-700'
-                          )}
-                        >
-                          Register
-                        </Link>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link
-                          href='/login'
-                          className={classNames(
-                            active ? 'bg-gray-100' : '',
-                            'block px-4 py-2 text-sm text-gray-700'
-                          )}
-                        >
-                          Login
-                        </Link>
-                      )}
-                    </Menu.Item>
+                    {!currentUser && (
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href='/register'
+                            className={classNames(
+                              active ? 'bg-gray-100' : '',
+                              'block px-4 py-2 text-sm text-gray-700'
+                            )}
+                          >
+                            Register
+                          </Link>
+                        )}
+                      </Menu.Item>
+                    )}
+                    {!currentUser && (
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href='/login'
+                            className={classNames(
+                              active ? 'bg-gray-100' : '',
+                              'block px-4 py-2 text-sm text-gray-700'
+                            )}
+                          >
+                            Login
+                          </Link>
+                        )}
+                      </Menu.Item>
+                    )}
                     <Menu.Item>
                       {({ active }) => (
                         <Link
@@ -101,7 +103,7 @@ const Navbar = () => {
                             'block px-4 py-2 text-sm text-gray-700 cursor-pointer'
                           )}
                           role='button'
-                          onClick={() => {}}
+                          onClick={logOut}
                         >
                           Log out
                         </span>

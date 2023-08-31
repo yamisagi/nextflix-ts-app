@@ -1,9 +1,13 @@
-import React from 'react'
+import { getMovies } from '@/utils/tmdbFunctions';
+import React from 'react';
 
-const Movies = () => {
-  return (
-    <div>Movies</div>
-  )
-}
+export const metadata = {
+  title: 'Movies',
+};
+const Movies = async () => {
+  const movies = await getMovies('now_playing');
+  console.log(movies);
+  return <div>Movies</div>;
+};
 
-export default Movies
+export default Movies;
