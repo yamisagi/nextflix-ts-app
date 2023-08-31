@@ -75,6 +75,14 @@ In this project, I built a Netflix clone using Next.js, TypeScript, React, and T
 - [x] Creating the Auth Context
 - [x] Implementing the Profile Page
 - [x] Creating the Utility Functions
+- [x] Implementing the Watch & Details Page
+- [x] Fix the Responsive Issues
+- [x] Implementing Private Routing
+- [x] Implementing the Details Page
+- [x] Implementing the Parameters in the URL
+- [x] Preparing the App for Deployment
+- [x] Deploying the Vercel
+- [x] Project Done 🚀
 
 
 

@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import AuthContextProvider from '@/context/AuthContext';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import PrivateLayout from './(private)/layout';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,9 +25,11 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <AuthContextProvider>
-          <Navbar />
-          {children}
-          <ToastContainer />
+          <PrivateLayout>
+            <Navbar />
+            {children}
+            <ToastContainer />
+          </PrivateLayout>
         </AuthContextProvider>
       </body>
     </html>

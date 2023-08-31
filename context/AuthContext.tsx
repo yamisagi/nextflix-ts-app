@@ -20,7 +20,7 @@ import { createContext } from 'react';
 const AuthContext = createContext({} as AuthContextType);
 
 const AuthContextProvider = ({ children }: Props) => {
-  const [currentUser, setCurrentUser] = useState<CurrentUser>({
+  const [currentUser, setCurrentUser] = useState<CurrentUser | null>({
     email: '',
     displayName: '',
     photoURL: '',
@@ -80,19 +80,24 @@ const AuthContextProvider = ({ children }: Props) => {
   const logOut = () => {
     signOut(auth);
     toastSuccessNotify('Logged out successfully!');
+    setCurrentUser(null);
     router.push('/login');
   };
 
   const userObserver = () => {
-    //? Kullanıcının signin olup olmadığını takip eden ve kullanıcı değiştiğinde yeni kullanıcıyı response olarak dönen firebase metodu
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const { email, displayName, photoURL } = user;
         setCurrentUser({ email, displayName, photoURL });
+        sessionStorage.setItem(
+          "user",
+          JSON.stringify({ email, displayName, photoURL })
+        );
         console.log(user);
       } else {
         // User is signed out
         setCurrentUser({ email: '', displayName: '', photoURL: '' });
+
         console.log('logged out');
       }
     });

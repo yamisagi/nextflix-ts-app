@@ -1,6 +1,18 @@
+'use client';
 import Link from 'next/link';
+import React, { useEffect } from 'react';
+import { useAuthContext } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const { currentUser } = useAuthContext();
+  console.log(currentUser);
+  let router = useRouter();
+  useEffect(() => {
+    if (currentUser !== null) {
+      router.push('/movies');
+    }
+  }, [currentUser]);
   return (
     <div
       className="relative h-screen w-full bg-[url('/images/hero.jpg')] 
@@ -19,7 +31,7 @@ export default function Home() {
             membership.
           </p>
           <div className='flex align-middle justify-center mt-5'>
-            <Link href='/register'>
+            <Link href={'/register'}>
               <button className='bg-[#e50914] text-white px-10 py-2 rounded-md font-[500] text-xl'>
                 Get Started
               </button>
