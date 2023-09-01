@@ -57,7 +57,11 @@
 ## About The Project
 
 <!-- add asset here later -->
-<!--<img src="https://github.com/yamisagi/us/blob/main/assets/product.gif" width="350" height="550"> -->
+
+
+https://github.com/yamisagi/nextflix-ts-app/assets/84624853/54990f38-cd80-43dc-b9d7-ba61288781fa
+
+
 
 In this project, I built a Netflix clone using Next.js, TypeScript, React, and Tailwind CSS.
 ### I will Update this section later 🙌🏻
