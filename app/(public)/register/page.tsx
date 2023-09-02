@@ -5,19 +5,18 @@ import React, { useState } from 'react';
 import PrivateLayout from '@/app/(private)/layout';
 
 const Register = () => {
-  //* ayrı stateler
 
-  //* birleştirilmiş state
-  const [info, setInfo] = useState<RegisterProps>({
+  const [info, setInfo] = useState({
     firstName: '',
     lastName: '',
     email: '',
     password: '',
   });
+
   const { firstName, lastName, email, password } = info;
   const { createUser, signUpProvider } = useAuthContext();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const displayName = `${firstName} ${lastName}`;
     e.preventDefault();
     createUser(email, password, displayName);

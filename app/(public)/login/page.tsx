@@ -6,11 +6,11 @@ import Link from 'next/link';
 import React, { useContext, useState } from 'react';
 
 const Login = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const { signIn, signUpProvider, forgotPassword } = useAuthContext();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     signIn(email, password);
     // console.log(email, password);
